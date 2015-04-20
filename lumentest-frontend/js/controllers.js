@@ -2,7 +2,7 @@ angular.module('lumentestApp.controllers', []).controller('ArticleListController
   $scope.articles = Article.query(); //fetch all articles. Issues a GET to /api/article
   $scope.deleteArticle = function(article) { // Delete an article. Issues a DELETE to /api/article/:id
     article.$delete(function() {
-      $window.location.href = ''; //redirect to home
+      $state.go('articles'); //redirect to home
     });
   };
 }]).controller('ArticleViewController', ['$scope', '$stateParams', 'Article', function($scope, $stateParams, Article) {

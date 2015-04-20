@@ -13,8 +13,6 @@ class ArticleController extends Controller{
     public function index(){
  
         $articles  = Article::all();
-        header("Access-Control-Allow-Origin: *");
-        header('Access-Control-Allow-Credentials: true');
         return response()->json($articles);
  
     }
@@ -22,16 +20,12 @@ class ArticleController extends Controller{
     public function getArticle($id){
  
         $article  = Article::find($id);
-        header("Access-Control-Allow-Origin: *");
-        header('Access-Control-Allow-Credentials: true'); 
         return response()->json($article);
     }
  
     public function saveArticle(Request $request){
  
-        $article = Article::create($request->all());
-        header("Access-Control-Allow-Origin: *");
-        header('Access-Control-Allow-Credentials: true'); 
+        $article = Article::create($request->all()); 
         return response()->json($article);
  
     }
@@ -39,9 +33,7 @@ class ArticleController extends Controller{
     public function deleteArticle($id){
         $article  = Article::find($id);
  
-        $article->delete();
-        header("Access-Control-Allow-Origin: *");
-        header('Access-Control-Allow-Credentials: true'); 
+        $article->delete(); 
         return response()->json('success');
     }
  
@@ -51,9 +43,7 @@ class ArticleController extends Controller{
         $article->title = $request->input('title');
         $article->content = $request->input('content');
  
-        $article->save();
-        header("Access-Control-Allow-Origin: *");
-        header('Access-Control-Allow-Credentials: true'); 
+        $article->save(); 
         return response()->json($article);
     }
  
