@@ -1,0 +1,17 @@
+<table class="table articletable">
+  <tr>
+    <td><h3>Details for {{article.title}}</h3></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Article Title</td>
+    <td>{{article.title}}</td>
+  </tr>
+  <tr>
+    <td>Content</td>
+    <td>{{article.content}}</td>
+  </tr>
+</table>
+<div>
+  <a class="btn btn-primary" ui-sref="editArticle({id:article._id})">Edit</a>
+</div>
